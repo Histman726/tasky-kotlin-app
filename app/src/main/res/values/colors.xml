@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_principal">#4A90E2</color>
+    <color name="background_btn_menu">#4180CA</color>
+    <color name="background_categories">#D4D4D4</color>
+    <color name="border_btn_menu">#D1E8FF</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
