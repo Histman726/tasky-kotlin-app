@@ -56,6 +56,7 @@
 
     </androidx.cardview.widget.CardView>
 
+    <!-- TODO: Ajustar el boton flotante -->
 
     <FrameLayout
         android:paddingVertical="150dp"
@@ -96,7 +97,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvCategories"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="40dp"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:gravity="center"
@@ -166,6 +167,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTasks"
         app:layout_constraintTop_toBottomOf="@+id/tvTareas"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -271,7 +273,7 @@
                         android:layout_gravity="center"
                         android:padding="20dp"
                         app:tint="@color/white"
-                        android:src="@drawable/ic_book"
+                        android:src="@drawable/ic_book"/>
                 </androidx.cardview.widget.CardView>
             </FrameLayout>
         </LinearLayout>
