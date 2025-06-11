@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="270dp"
+    android:background="@color/background_tasks"
+    android:padding="20dp"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/etName"
+        android:backgroundTint="@color/black"
+        android:hint="Nombre de la tarea"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/etDescription"
+        android:backgroundTint="@color/black"
+        android:hint="Descripción de la tarea"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Spinner
+        android:hint="Categoría"
+        android:id="@+id/spinnerCategorias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Spinner
+        android:hint="Prioridad"
+        android:layout_marginTop="8dp"
+        android:id="@+id/spinnerPrioridad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:inputType="date"
+        android:id="@+id/etFecha"
+        android:hint="Fecha del recordatorio"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:inputType="time"
+        android:id="@+id/etHora"
+        android:hint="Hora del recordatorio en hrs"
+        android:backgroundTint="@color/black"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnGuardar"
+        android:text="Guardar"
+        android:backgroundTint="@color/background_principal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+
+
+
+</LinearLayout>

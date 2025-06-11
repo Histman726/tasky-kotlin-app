@@ -1,283 +1,283 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ListToDoActivity">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvHeader"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/background_principal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:padding="15dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="15dp"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="@font/inria_sans"
-                android:textColor="@color/white"
-                android:textSize="32sp"
-                android:textStyle="bold"
-                tools:text="Lista de tareas" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:backgroundTint="@color/background_principal"
-                android:contentDescription="TODO"
-                android:src="@drawable/search_solid"
-                app:tint="@color/white" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:fontFamily="@font/inria_sans"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                tools:text="Fecha" />
-
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <!-- TODO: Ajustar el boton flotante -->
-
-    <FrameLayout
-        android:paddingVertical="150dp"
-        android:paddingHorizontal="50dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnAddTask"
-            android:src="@drawable/ic_plus"
-            app:tint="@color/white"
-            app:fabSize="auto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:backgroundTint="@color/background_btn_menu"/>
-
-    </FrameLayout>
-
-
-
-    <TextView
-        android:id="@+id/tvCategories"
-        app:layout_constraintTop_toBottomOf="@+id/cvHeader"
-        android:fontFamily="@font/inria_sans"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="25dp"
-        android:textStyle="bold"
-        android:textSize="15sp"
-        android:textColor="@color/black"
-        android:text="Categorias"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <LinearLayout
-        android:id="@+id/seccionCategories"
-        app:layout_constraintTop_toBottomOf="@+id/tvCategories"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        >
 
         <androidx.cardview.widget.CardView
-            app:cardCornerRadius="24dp"
-            app:cardBackgroundColor="@color/background_categories"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:src="@drawable/ic_escuela"
-                android:layout_margin="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            app:cardCornerRadius="24dp"
-            android:layout_marginStart="15dp"
-            app:cardBackgroundColor="@color/background_categories"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_margin="15dp"
-                android:src="@drawable/work_case_filled_svgrepo_com"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            app:cardCornerRadius="24dp"
-            app:cardBackgroundColor="@color/background_categories"
-            android:layout_marginStart="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:layout_margin="15dp"
-                android:src="@drawable/ic_personal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-        </androidx.cardview.widget.CardView>
-
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/tvTareas"
-        app:layout_constraintTop_toBottomOf="@+id/seccionCategories"
-        android:fontFamily="@font/inria_sans"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="25dp"
-        android:textStyle="bold"
-        android:textSize="15sp"
-        android:textColor="@color/black"
-        android:text="Tareas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvTasks"
-        app:layout_constraintTop_toBottomOf="@+id/tvTareas"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginTop="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/background_principal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <LinearLayout
+            android:id="@+id/cvHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/background_principal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/inria_sans"
+                    android:textColor="@color/white"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    tools:text="Lista de tareas" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:backgroundTint="@color/background_principal"
+                    android:contentDescription="TODO"
+                    android:src="@drawable/search_solid"
+                    app:tint="@color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:fontFamily="@font/inria_sans"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    tools:text="Fecha" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/tvCategories"
+            app:layout_constraintTop_toBottomOf="@+id/cvHeader"
+            android:fontFamily="@font/inria_sans"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="25dp"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:text="Categorias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:id="@+id/seccionCategories"
+            app:layout_constraintTop_toBottomOf="@+id/tvCategories"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingHorizontal="15dp"
-            android:paddingVertical="15dp">
+            android:layout_height="wrap_content">
 
-            <!-- CardView 1: Calendario -->
-            <FrameLayout
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="24dp"
+                app:cardBackgroundColor="@color/background_categories"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/border_btn_menu"
-                android:padding="2dp">
+                android:layout_height="wrap_content">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/card_calendar"
+                <ImageView
+                    android:src="@drawable/ic_escuela"
+                    android:layout_margin="15dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:cardBackgroundColor="@color/background_btn_menu"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="4dp">
+                    android:layout_height="wrap_content"/>
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:padding="20dp"
-                        android:src="@drawable/ic_calendar"
-                        app:tint="@color/white" />
-                </androidx.cardview.widget.CardView>
-            </FrameLayout>
+            </androidx.cardview.widget.CardView>
 
-            <!-- CardView 2: Lista -->
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="24dp"
                 android:layout_marginStart="15dp"
-                android:background="#D1E8FF"
-                android:padding="2dp">
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/card_list"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:cardBackgroundColor="@color/background_btn_menu"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="4dp">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:padding="20dp"
-                        android:src="@drawable/ic_list"
-                        app:tint="@color/white" />
-                </androidx.cardview.widget.CardView>
-            </FrameLayout>
-
-            <!-- CardView 3: Libro -->
-            <FrameLayout
+                app:cardBackgroundColor="@color/background_categories"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:background="@color/border_btn_menu"
-                android:padding="2dp">
+                android:layout_height="wrap_content">
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/card_book"
+                <ImageView
+                    android:layout_margin="15dp"
+                    android:src="@drawable/work_case_filled_svgrepo_com"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:cardBackgroundColor="@color/background_btn_menu"
-                    app:cardCornerRadius="8dp"
-                    app:cardElevation="4dp">
+                    android:layout_height="wrap_content"/>
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:padding="20dp"
-                        app:tint="@color/white"
-                        android:src="@drawable/ic_book"/>
-                </androidx.cardview.widget.CardView>
-            </FrameLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="24dp"
+                app:cardBackgroundColor="@color/background_categories"
+                android:layout_marginStart="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_margin="15dp"
+                    android:src="@drawable/ic_personal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.cardview.widget.CardView>
+
+
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/tvTareas"
+            app:layout_constraintTop_toBottomOf="@+id/seccionCategories"
+            android:fontFamily="@font/inria_sans"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="25dp"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:text="Tareas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTasks"
+            app:layout_constraintTop_toBottomOf="@+id/tvTareas"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/cvMenu"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/background_principal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="15dp">
+
+                <!-- CardView 1: Calendario -->
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/border_btn_menu"
+                    android:padding="2dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_calendar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardBackgroundColor="@color/background_btn_menu"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="4dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="20dp"
+                            android:src="@drawable/ic_calendar"
+                            app:tint="@color/white" />
+                    </androidx.cardview.widget.CardView>
+                </FrameLayout>
+
+                <!-- CardView 2: Lista -->
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:background="#D1E8FF"
+                    android:padding="2dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_list"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardBackgroundColor="@color/background_btn_menu"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="4dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="20dp"
+                            android:src="@drawable/ic_list"
+                            app:tint="@color/white" />
+                    </androidx.cardview.widget.CardView>
+                </FrameLayout>
+
+                <!-- CardView 3: Libro -->
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:background="@color/border_btn_menu"
+                    android:padding="2dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_book"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardBackgroundColor="@color/background_btn_menu"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="4dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="20dp"
+                            app:tint="@color/white"
+                            android:src="@drawable/ic_book"/>
+                    </androidx.cardview.widget.CardView>
+                </FrameLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAddTask"
+        android:src="@drawable/ic_plus"
+        app:tint="@color/white"
+        app:fabSize="auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="150dp"
+        android:layout_marginEnd="70dp"
+        android:backgroundTint="@color/background_btn_menu"/>
+
+</FrameLayout>
+
