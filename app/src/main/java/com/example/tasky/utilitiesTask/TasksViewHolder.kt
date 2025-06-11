@@ -20,12 +20,32 @@ class TasksViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     fun render(task: Task){
         if (task.isSelected){
             tvTask.paintFlags = tvTask.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            tvTask.setTextColor(ContextCompat.getColor(tvTask.context, R.color.disable_task))
         }
         else{
             tvTask.paintFlags = tvTask.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
+            tvTask.setTextColor(ContextCompat.getColor(tvTask.context, R.color.black))
         }
 
         tvTask.text = task.name
         tvDescription.text = task.description
+
+        val color = when (task.priority){
+            "Urgente" -> R.color.border_task_urgente
+            "Media" -> R.color.border_task_media
+            "Baja" -> R.color.border_task_baja
+            else -> R.color.black
+        }
+
+        cvBorder.setCardBackgroundColor(ContextCompat.getColor(cvBorder.context, color))
+
+        val image = when (task.category){
+            "Escuela" -> R.drawable.ic_escuela
+            "Personal" -> R.drawable.ic_personal
+            "Laboral" -> R.drawable.work_case_filled_svgrepo_com
+            else -> R.drawable.ic_image
+        }
+
+        ivCategory.setImageResource(image)
     }
 }

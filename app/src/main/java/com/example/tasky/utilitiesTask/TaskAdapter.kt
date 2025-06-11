@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tasky.R
 
-class TasksAdapter(var tasks: List<Task>) : RecyclerView.Adapter<TasksViewHolder>(){
+class TasksAdapter(var tasks: List<Task>, private val onTaskSelected: (Int) -> Unit) : RecyclerView.Adapter<TasksViewHolder>(){
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -21,9 +21,7 @@ class TasksAdapter(var tasks: List<Task>) : RecyclerView.Adapter<TasksViewHolder
         holder.render(tasks[position])
 
         //TODO: Cambiar el clickListener
-        // holder.itemView.setOnClickListener { onTaskSelected(position) }
-
-        // onTaskSelected(position)
+        holder.itemView.setOnClickListener { onTaskSelected(position) }
     }
 
 

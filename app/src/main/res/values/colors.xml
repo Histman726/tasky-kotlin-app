@@ -20,6 +20,8 @@
     <color name="border_task_baja">#FFEB3B</color>
     <color name="background_tasks">#F5F5F5</color>
     <color name="color_description">#424242</color>
+    <color name="disable_task">#808080</color>
+    <color name="disabled_category">#515151</color>
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>

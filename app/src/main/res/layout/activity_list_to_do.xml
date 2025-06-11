@@ -28,32 +28,31 @@
                 android:padding="15dp">
 
                 <TextView
+                    android:id="@+id/tvSeccionName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="15dp"
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/inria_sans"
                     android:textColor="@color/white"
-                    android:textSize="32sp"
+                    android:textSize="25sp"
                     android:textStyle="bold"
                     tools:text="Lista de tareas" />
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
                     android:backgroundTint="@color/background_principal"
                     android:contentDescription="TODO"
                     android:src="@drawable/search_solid"
                     app:tint="@color/white" />
 
                 <TextView
+                    android:id="@+id/tvFecha"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="25dp"
                     android:fontFamily="@font/inria_sans"
                     android:textColor="@color/white"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:textStyle="bold"
                     tools:text="Fecha" />
 
@@ -89,6 +88,7 @@
             android:layout_height="wrap_content">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card_escuela"
                 app:cardCornerRadius="24dp"
                 app:cardBackgroundColor="@color/background_categories"
                 android:layout_width="wrap_content"
@@ -103,6 +103,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card_trabajo"
                 app:cardCornerRadius="24dp"
                 android:layout_marginStart="15dp"
                 app:cardBackgroundColor="@color/background_categories"
@@ -118,6 +119,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card_personal"
                 app:cardCornerRadius="24dp"
                 app:cardBackgroundColor="@color/background_categories"
                 android:layout_marginStart="15dp"
