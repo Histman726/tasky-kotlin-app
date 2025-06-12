@@ -2,10 +2,12 @@ package com.example.tasky
 
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.FrameLayout
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -32,6 +34,8 @@ class ListToDoActivity : AppCompatActivity() {
     private lateinit var cvEscuela: CardView
     private lateinit var cvTrabajo: CardView
     private lateinit var cvPersonal: CardView
+    private lateinit var fmCalendar: FrameLayout
+    private lateinit var fmAgenda: FrameLayout
 
     //TODO: Obtener las tareas de la base de datos
     private val tasks = mutableListOf<Task>(
@@ -40,8 +44,6 @@ class ListToDoActivity : AppCompatActivity() {
         Task("Hacer la limpieza", "Personal", "Hoy", "12:00", "Descripción de la tarea", "Baja"),
     )
 
-    // El estado de los filtros: true = la categoría está seleccionada para filtrar, false = no lo está
-    // Inicialmente, ninguna categoría está seleccionada para filtrar.
     private val categoriasSeleccionadas = mutableListOf<Boolean>(false, false, false)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,6 +68,8 @@ class ListToDoActivity : AppCompatActivity() {
         cvEscuela = findViewById(R.id.card_escuela)
         cvTrabajo = findViewById(R.id.card_trabajo)
         cvPersonal = findViewById(R.id.card_personal)
+        fmCalendar = findViewById(R.id.fmCalendar)
+        fmAgenda = findViewById(R.id.fmAgenda)
     }
 
     private fun initListeners() {
@@ -83,6 +87,14 @@ class ListToDoActivity : AppCompatActivity() {
         cvPersonal.setOnClickListener {
             toggleCategoryFilter(2)
             filterTasks()
+        }
+        fmAgenda.setOnClickListener {
+            val intent = Intent(this, AgendaActivity::class.java)
+            startActivity(intent)
+        }
+        fmCalendar.setOnClickListener {
+            val intent = Intent(this, CalendarActivity::class.java)
+            startActivity(intent)
         }
     }
 

@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListToDoActivity">
+    android:backgroundTint="#FFFFFF"
+    android:visibility="visible"
+    tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cvHeader"
@@ -28,144 +30,54 @@
                 android:padding="15dp">
 
                 <TextView
-                    android:id="@+id/tvSeccionName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp"
                     android:layout_marginBottom="10dp"
                     android:fontFamily="@font/inria_sans"
                     android:textColor="@color/white"
-                    android:textSize="25sp"
+                    android:textSize="32sp"
                     android:textStyle="bold"
-                    tools:text="Lista de tareas" />
+                    android:text="Calendario" />
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
                     android:backgroundTint="@color/background_principal"
-                    android:contentDescription="TODO"
+                    android:contentDescription="Search"
                     android:src="@drawable/search_solid"
                     app:tint="@color/white" />
 
                 <TextView
-                    android:id="@+id/tvFecha"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
                     android:fontFamily="@font/inria_sans"
                     android:textColor="@color/white"
-                    android:textSize="15sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
-                    tools:text="Fecha" />
+                    android:text="Fecha" />
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
-
-        <TextView
-            android:id="@+id/tvCategories"
-            app:layout_constraintTop_toBottomOf="@+id/cvHeader"
-            android:fontFamily="@font/inria_sans"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="25dp"
-            android:textStyle="bold"
-            android:textSize="15sp"
-            android:textColor="@color/black"
-            android:text="Categorias"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <LinearLayout
-            android:id="@+id/seccionCategories"
-            app:layout_constraintTop_toBottomOf="@+id/tvCategories"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:layout_height="wrap_content">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_escuela"
-                app:cardCornerRadius="24dp"
-                app:cardBackgroundColor="@color/background_categories"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:src="@drawable/ic_escuela"
-                    android:layout_margin="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_trabajo"
-                app:cardCornerRadius="24dp"
-                android:layout_marginStart="15dp"
-                app:cardBackgroundColor="@color/background_categories"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:layout_margin="15dp"
-                    android:src="@drawable/work_case_filled_svgrepo_com"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/card_personal"
-                app:cardCornerRadius="24dp"
-                app:cardBackgroundColor="@color/background_categories"
-                android:layout_marginStart="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:layout_margin="15dp"
-                    android:src="@drawable/ic_personal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-            </androidx.cardview.widget.CardView>
-
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tvTareas"
-            app:layout_constraintTop_toBottomOf="@+id/seccionCategories"
-            android:fontFamily="@font/inria_sans"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="25dp"
-            android:textStyle="bold"
-            android:textSize="15sp"
-            android:textColor="@color/black"
-            android:text="Tareas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-
+        <!-- RecyclerView para mostrar eventos dinámicamente -->
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvTasks"
-            app:layout_constraintTop_toBottomOf="@+id/tvTareas"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/cvMenu"
-            android:layout_marginHorizontal="32dp"
-            android:layout_marginTop="15dp"
+            android:id="@+id/recyclerViewEvents"
             android:layout_width="match_parent"
-            android:layout_height="0dp"/>
-
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintTop_toBottomOf="@id/cvHeader"
+            app:layout_constraintBottom_toTopOf="@id/cardView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cvMenu"
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardBackgroundColor="@color/background_principal"
@@ -183,7 +95,6 @@
 
                 <!-- CardView 1: Calendario -->
                 <FrameLayout
-                    android:id="@+id/fmCalendar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/border_btn_menu"
@@ -211,7 +122,6 @@
 
                 <!-- CardView 2: Lista -->
                 <FrameLayout
-                    android:id="@+id/fmLista"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
@@ -240,7 +150,6 @@
 
                 <!-- CardView 3: Libro -->
                 <FrameLayout
-                    android:id="@+id/fmAgenda"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
@@ -262,27 +171,28 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:padding="20dp"
-                            app:tint="@color/white"
-                            android:src="@drawable/ic_book"/>
+                            android:src="@drawable/ic_book"
+                            app:tint="@color/white" />
                     </androidx.cardview.widget.CardView>
                 </FrameLayout>
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="70dp"
+            android:layout_marginBottom="40dp"
+            android:clickable="true"
+            android:src="@drawable/ic_plus"
+            app:backgroundTint="#2195F1"
+            app:tint="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/cardView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:useCompatPadding="false" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnAddTask"
-        android:src="@drawable/ic_plus"
-        app:tint="@color/white"
-        app:fabSize="auto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginBottom="150dp"
-        android:layout_marginEnd="70dp"
-        android:backgroundTint="@color/background_btn_menu"/>
-
 </FrameLayout>
-
